@@ -1,0 +1,172 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --fw-light: 300;
+  --fw-normal: 400;
+  --fw-semi: 500;
+  --fw-bold: 700;
+  --fs-h1: 1.25rem;
+  --fs-h2: 1.75rem;
+  --fs-body: 1rem;
+  --fs-xl: 4rem;
+  --clr-light: #fff;
+  --clr-gray: #989898;
+  --clr-dark: #444;
+  --clr-accent: #D06D6D;
+  --clr-accent-dark: #613131;
+}
+
+.sr-only:not(:focus):not(:active), .unit input {
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+          clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.6;
+  background-image: url(../img/mars.jpg);
+  background-size: cover;
+  color: var(--clr-light);
+  min-height: 100vh;
+}
+
+h1, h2, h3 {
+  line-height: 1;
+}
+
+a {
+  color: var(--clr-accent);
+}
+a:hover {
+  color: var(--clr-accent-dark);
+}
+
+.main-weather {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 2em;
+  max-width: 1000px;
+  margin: 4em 0 0 4em;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2em;
+}
+.main-weather .title {
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-light);
+  text-transform: uppercase;
+  color: var(--clr-accent);
+  letter-spacing: 2px;
+  grid-column: 1/-1;
+}
+.main-weather .section-title {
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-bold);
+  margin: 0;
+}
+.main-weather .section-title-date {
+  font-size: var(--fs-xl);
+}
+.main-weather .reading {
+  font-size: var(--fs-h1);
+  margin: 0;
+  color: var(--clr-gray);
+}
+.main-weather .date {
+  grid-column: 1/2;
+}
+.main-weather .date-day {
+  font-size: var(--fs-h2);
+  margin: 0;
+  color: var(--clr-gray);
+  font-weight: var(--fw-light);
+}
+.main-weather .temp {
+  --border: solid .25em var(--clr-accent-dark);
+  grid-column: 2/3;
+  border-left: var(--border);
+  border-right: var(--border);
+  padding: 0 2em;
+}
+.main-weather .wind {
+  grid-column: 3/4;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: min-content 1fr;
+  align-self: start;
+}
+.main-weather .wind .section-title,
+.main-weather .wind .reading {
+  grid-column: 2/3;
+}
+.main-weather .wind-direction {
+  --size: 6rem;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-row: 1/span 2;
+}
+.main-weather .wind-arrow {
+  --direction: 180deg;
+  --size: 1rem;
+  height: calc(var(--size) * 3);
+  width: var(--size);
+  background: var(--clr-accent-dark);
+  -webkit-clip-path: polygon(50% 0, 0 100%, 100% 100%);
+          clip-path: polygon(50% 0, 0 100%, 100% 100%);
+  transform: translateY(-50%) rotate(var(--direction));
+  transform-origin: bottom center;
+}
+.main-weather .info {
+  grid-column: 1/3;
+}
+.main-weather .unit {
+  grid-column: 3/4;
+  place-self: end;
+  color: var(--clr-light);
+  display: flex;
+  opacity: 0.7;
+  transition: opacity 275ms linear;
+}
+.main-weather .unit:hover {
+  opacity: 1;
+}
+.main-weather .unit label {
+  cursor: pointer;
+}
+.main-weather .unit-toggle {
+  cursor: pointer;
+  width: 4em;
+  border: 2px solid var(--clr-light);
+  background: transparent;
+  padding: 0;
+  border-radius: 100vmax;
+  margin: 0 1em;
+}
+.main-weather .unit-toggle::after {
+  content: "";
+  display: block;
+  background: var(--clr-light);
+  border-radius: 50%;
+  height: 1rem;
+  margin: 3px;
+  margin-left: auto;
+  width: 1rem;
+}
+.main-weather :checked ~ .unit-toggle::after {
+  margin-left: 3px;
+}/*# sourceMappingURL=main.css.map */
