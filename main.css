@@ -39,6 +39,7 @@ body {
   background-size: cover;
   color: var(--clr-light);
   min-height: 100vh;
+  overflow-y: hidden;
 }
 
 h1, h2, h3 {
